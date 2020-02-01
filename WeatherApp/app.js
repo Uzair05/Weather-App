@@ -1,4 +1,5 @@
 var express = require('express');
+const https = require('https');
 var $ = require('jquery');
 var app = express();
 
@@ -12,14 +13,32 @@ app.get('/', function(req, res) {
 
 
 
-app.post('/Weather',express.urlencoded({extended:true}), function(req, res) {
+app.post('/Weather', express.urlencoded({
+  extended: true
+}), function(req, res) {
   /*Get Data and return json array*/
   var latitude = req.body.latitude;
   var longitude = req.body.longitude;
 
-  //console.log();
+  https.get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY', (resp) => {
+    let data = '';
 
-  res.send("latitude = " + latitude +"; longitude = " + longitude);
+    // A chunk of data has been recieved.
+    resp.on('data', (chunk) => {
+      data += chunk;
+    });
+
+    // The whole response has been received. Print out the result.
+    resp.on('end', () => {
+      //console.log(JSON.parse(data).explanation);
+      res.send(JSON.parse(data).hdurl);
+    });
+
+  }).on("error", (err) => {
+    console.log("Error: " + err.message);
+  });
+
+  //res.send("latitude = " + latitude +"; longitude = " + longitude);
 
 });
 

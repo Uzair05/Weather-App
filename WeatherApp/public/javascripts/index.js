@@ -16,6 +16,13 @@ function learnt(){
        },
        function(data,status){
          var x = document.getElementById("demo");
+
+         /*
+           p = document.createElement("IMG");
+           p.setAttribute('src',data);
+           x.appendChild(p);
+         */
+
          x.innerHTML = data;
        });
 
