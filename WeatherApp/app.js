@@ -12,12 +12,14 @@ app.get('/', function(req, res) {
 
 
 
-app.post('/Weather', function(req, res) {
+app.post('/Weather',express.urlencoded({extended:true}), function(req, res) {
   /*Get Data and return json array*/
-  var lat = req.lat;
-  var lon = req.lon;
+  var latitude = req.body.latitude;
+  var longitude = req.body.longitude;
 
-  console.log(lat + "; " + lon);
+  //console.log();
+
+  res.send("latitude = " + latitude +"; longitude = " + longitude);
 
 });
 

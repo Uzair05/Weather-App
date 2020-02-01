@@ -1,4 +1,4 @@
-var x = document.getElementById("demo");
+
 
 
 
@@ -9,14 +9,15 @@ function learnt(){
        var latitude = position.coords.latitude;
        var longitude = position.coords.longitude;
 
-
-             /*
-
-             Enter Codes To get API reponse here.
-
-              */
-
-       x.innerHTML = "latitude =" + latitude +"; " + "longitude = "  + longitude;
+       $.post('Weather',
+       {
+         "latitude":latitude,
+         "longitude":longitude
+       },
+       function(data,status){
+         var x = document.getElementById("demo");
+         x.innerHTML = data;
+       });
 
     });
   } else {
