@@ -25,36 +25,30 @@ app.post('/Weather', express.urlencoded({
   var latitude = req.body.latitude;
   var longitude = req.body.longitude;
 
-  https.get('api.openweathermap.org/data/2.5/weather?lat=' & latitude & '&lon=' & longitude & '&appid=33f2983a721f872ef3cbaf1619646581', (resp) => {
+  const https = require('https');
+
+  https.get('https://api.openweathermap.org/data/2.5/weather?lat='+latitude+'&lon='+longitude+'&appid=646d2963341510e0b383bb1058bf9ae5', (resp) => {
     let data = '';
+
     // A chunk of data has been recieved.
     resp.on('data', (chunk) => {
       data += chunk;
     });
 
-
-
-
     // The whole response has been received. Print out the result.
     resp.on('end', () => {
+      res.send(data);
 
-      (data) => {
-        var jData = JSON.parse(data);
+      /*
+      Parse Data jse6
+       */
 
-        /*
-        Insert parsing code here
-         */
-         console.log(jData);
-        //res.send(jData);
-
-
-
-      }
     });
 
   }).on("error", (err) => {
     console.log("Error: " + err.message);
   });
+
 });
 
 
