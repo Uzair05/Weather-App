@@ -37,11 +37,14 @@ app.post('/Weather', express.urlencoded({
 
     // The whole response has been received. Print out the result.
     resp.on('end', () => {
-      res.send(data);
-
-      /*
-      Parse Data jse6
-       */
+      var datae = JSON.parse(data);
+      const datax = {
+        "name":datae.name,
+        "weather":datae.weather[0].main,
+        "description":datae.weather[0].description,
+        "icon":("http://openweathermap.org/img/wn/"+datae.weather[0].icon + "@2x.png")
+      }
+      res.send(JSON.stringify(datax));
 
     });
 
