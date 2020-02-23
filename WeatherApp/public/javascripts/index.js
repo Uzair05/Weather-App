@@ -11,32 +11,41 @@ function learnt() {
         },
         function(data, status) {
 
-          alert(data);
-
           const datax = JSON.parse(data);
           var image = document.createElement("img");
-          image.setAttribute("src",datax.icon);
-          image.setAttribute("alt","Weather LOGO");
+          image.setAttribute("src", datax.icon);
+          image.setAttribute("alt", "Weather LOGO");
+          imgae.setAttribute("class", "WeatherICON")
           x.appendChild(image);
 
           var name = document.createElement("h2");
-          name.setAttribute("class","WeatherName");
+          name.setAttribute("class", "WeatherName");
           name.innerHTML = datax.name;
           x.appendChild(name);
 
           var mosum = document.createElement("h3");
-          mosum.setAttribute("class","WeatherDescription");
-          mosum.innerHTML=datax.weather;
+          mosum.setAttribute("class", "WeatherDescription");
+          mosum.innerHTML = datax.weather;
           x.appendChild(mosum);
 
           var description = document.createElement("p");
           description.innerHTML = datax.description;
-          description.setAttribute("class","WeatherDescription");
+          description.setAttribute("class", "WeatherDescription");
           x.appendChild(description);
 
+        });
 
 
+      $.post('WeatherForeCast', {
+          "latitude": latitude,
+          "longitude": longitude
+        },
+        function(data, status) {
+          /*
 
+          Forcast
+
+           */
         });
 
     });
