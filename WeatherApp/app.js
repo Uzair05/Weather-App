@@ -70,30 +70,25 @@ app.post('/WeatherForecast', express.urlencoded({
       var datae = JSON.parse(data);
       if (datae.cod == "200") {
 
-        var mojoList = function(datae) {
-          var list = datae.list;
-          var mojo = [];
-
-          list.forEach((item) => {
-            mojo.push({
-              "weather": item.weather[0].main,
-              "description": item.weather[0].description,
-              "icon": ("http://openweathermap.org/img/wn/" + item.weather[0].icon + "@2x.png"),
-              "dt_txt": item.dt_txt,
-              "temp": item.main.temp,
-              "humidity": item.main.humidity,
-              "wind": item.wind.speed
-            });
+        var mojo = [];
+        datae.list.forEach((item) => {
+          mojo.push({
+            "weather": item.weather[0].main,
+            "description": item.weather[0].description,
+            "icon": ("http://openweathermap.org/img/wn/" + item.weather[0].icon + "@2x.png"),
+            "dt_txt": item.dt_txt,
+            "temp": item.main.temp,
+            "humidity": item.main.humidity,
+            "wind": item.wind.speed
           });
-          return mojo;
-        }
+        });
 
         var datax = {
           "country": datae.city.country,
           "city": datae.city.name,
           "sunrise": datae.city.sunrise,
           "sunset": datae.city.sunset,
-          "list": mojoList
+          "list": mojo
         }
         res.send(JSON.stringify(datax));
       } else {
