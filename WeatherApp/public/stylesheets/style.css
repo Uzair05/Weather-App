@@ -2,7 +2,12 @@ body {
   background-color: lightblue;
 }
 
-.WeatherICON{}
+.WeatherICON{
+  background-color: white;
+  border: 3px white solid;
+  padding: 30px;
+  border-radius: 50%;
+}
 .WeatherDescription{}
 .WeatherName{}
 

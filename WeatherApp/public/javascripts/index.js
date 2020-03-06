@@ -1,4 +1,10 @@
+function setCss(){
+  $("body").css({"background-image":"url(./images/ClearSky-Night.jpg)","color":"white","background-repeat":"no-repeat"})
+}
+
 function learnt() {
+  setCss();
+
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
       var latitude = position.coords.latitude;
@@ -48,4 +54,5 @@ function learnt() {
   } else {
     x.innerHTML = "Geolocation is not supported by this browser.";
   }
+
 }
