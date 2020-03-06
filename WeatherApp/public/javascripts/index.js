@@ -1,5 +1,4 @@
 function learnt() {
-  var x = document.getElementById("demo");
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
       var latitude = position.coords.latitude;
@@ -12,41 +11,38 @@ function learnt() {
         function(data, status) {
 
           const datax = JSON.parse(data);
-          var image = document.createElement("img");
-          image.setAttribute("src", datax.icon);
-          image.setAttribute("alt", "Weather LOGO");
-          imgae.setAttribute("class", "WeatherICON")
-          x.appendChild(image);
 
-          var name = document.createElement("h2");
-          name.setAttribute("class", "WeatherName");
-          name.innerHTML = datax.name;
-          x.appendChild(name);
+          var image = $("<img></img>").attr({"src":datax.icon, "alt":"Weather LOGO", "class":"WeatherICON"});
+          var name = $("<h2></h2>").attr("Class","WeatherName");
+          name.html(datax.name);
+          var mosum = $("<h3></h3>").attr("class", "WeatherDescription");
+          mosum.html(datax.weather);
+          var description = $("<p></p>").attr("class", "WeatherDescription");
+          description.html(datax.description);
 
-          var mosum = document.createElement("h3");
-          mosum.setAttribute("class", "WeatherDescription");
-          mosum.innerHTML = datax.weather;
-          x.appendChild(mosum);
-
-          var description = document.createElement("p");
-          description.innerHTML = datax.description;
-          description.setAttribute("class", "WeatherDescription");
-          x.appendChild(description);
+          $("#demo").append(image,name,mosum,description);
 
         });
 
+        $.post('WeatherForecast',{
+            "latitude": latitude,
+            "longitude": longitude
+          },function(data,status){
+            if (data === "error"){
+              alert("Error: code 200 not found");
+            }else{
+              alert("Code: 200 found");
+              console.log(JSON.parse(data));
 
-      $.post('WeatherForeCast', {
-          "latitude": latitude,
-          "longitude": longitude
-        },
-        function(data, status) {
-          /*
 
-          Forcast
 
-           */
-        });
+              //Go Nuts
+
+
+
+            }
+          })
+
 
     });
   } else {
