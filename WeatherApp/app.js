@@ -88,6 +88,7 @@ app.post('/WeatherForecast', express.urlencoded({
           "city": datae.city.name,
           "sunrise": datae.city.sunrise,
           "sunset": datae.city.sunset,
+          "timezone":datae.city.timezone,
           "list": mojo
         }
         res.send(JSON.stringify(datax));

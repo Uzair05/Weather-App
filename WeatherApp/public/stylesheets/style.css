@@ -3,12 +3,14 @@ body {
 }
 
 .WeatherICON{
-  background-color: white;
-  border: 3px white solid;
+  background-color: #D3D3D3;
+  border: 3px black solid;
   padding: 30px;
   border-radius: 50%;
 }
-.WeatherDescription{}
+.WeatherDescription{
+  text-transform: capitalize;
+}
 .WeatherName{}
 
 .WeatherICON_Array{}
