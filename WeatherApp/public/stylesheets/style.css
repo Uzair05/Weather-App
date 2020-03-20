@@ -1,7 +1,9 @@
 body {
   background-color: lightblue;
 }
-
+.WeatherName{
+  font-family: 'Josefin Sans', sans-serif;
+}
 .WeatherICON{
   background-color: #D3D3D3;
   border: 3px black solid;
@@ -11,7 +13,9 @@ body {
 .WeatherDescription{
   text-transform: capitalize;
 }
-.WeatherName{}
 
-.WeatherICON_Array{}
-.WeatherName_Array{}
+
+.WeatherName_Array_List{}
+.WeatherName_Array_Item{}
+.WeatherName_Array_ICON{}
+.WeatherName_Array_Dscpt{}

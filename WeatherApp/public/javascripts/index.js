@@ -1,4 +1,17 @@
-function setCss(isDay) {
+function setCss() {
+  var d = new Date();
+  var n = d.getHours();
+
+  var isDay = (n)=>{
+    if (n>=18){
+      return false;
+    }else if (n<7) {
+      return false;
+    }else {
+      return true;
+    }
+  }
+
   if (isDay) {
     $("body").css({
       "background-image": "url(./images/CloudySky-Day.jpg)"
@@ -16,8 +29,7 @@ function setCss(isDay) {
 }
 
 $(document).ready(() => {
-  setCss(true);
-  //setFunction to measure time and toggle
+  setCss();
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
@@ -58,13 +70,15 @@ $(document).ready(() => {
           var data = JSON.parse(data);
           console.log(data);
 
+          /*
           var sunrise = new Date((data.sunrise*1000) + (data.timezone*1000));
-
           //var sunrise = (new Date()).now(data.sunrise);
           var sunset = new Date((data.sunset*1000));
           console.log("Sunrise : " + sunrise);
           console.log("Sunset : " + sunset);
+          */
 
+          var arrayDiv = $("<div></div").attr();
 
 
 

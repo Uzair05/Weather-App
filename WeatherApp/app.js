@@ -1,6 +1,5 @@
 const express = require('express');
 const https = require('https');
-var $ = require('jquery');
 var app = express();
 
 
@@ -11,24 +10,16 @@ app.get('/', function(req, res) {
   res.sendFile('/index.html');
 });
 
-
-
-app.post('/Weather', express.urlencoded({
-  extended: true
-}), function(req, res) {
+app.post('/Weather', express.urlencoded({extended: true}), function(req, res) {
   var latitude = req.body.latitude;
   var longitude = req.body.longitude;
-
   const https = require('https');
-
   https.get('https://api.openweathermap.org/data/2.5/weather?lat=' + latitude + '&lon=' + longitude + '&appid=33f2983a721f872ef3cbaf1619646581', (resp) => {
     let data = '';
-
     // A chunk of data has been recieved.
     resp.on('data', (chunk) => {
       data += chunk;
     });
-
     // The whole response has been received. Print out the result.
     resp.on('end', () => {
       var datae = JSON.parse(data);
@@ -39,32 +30,25 @@ app.post('/Weather', express.urlencoded({
         "icon": ("http://openweathermap.org/img/wn/" + datae.weather[0].icon + "@2x.png")
       }
       res.send(JSON.stringify(datax));
-
     });
-
   }).on("error", (err) => {
     console.log("Error: " + err.message);
   });
 });
 
-//
 
-app.post('/WeatherForecast', express.urlencoded({
-  extended: true
-}), function(req, res) {
+app.post('/WeatherForecast', express.urlencoded({extended: true}), function(req, res) {
   var latitude = req.body.latitude;
   var longitude = req.body.longitude;
-
   const https = require('https');
+
 
   https.get('https://api.openweathermap.org/data/2.5/forecast?lat=' + latitude + '&lon=' + longitude + '&appid=33f2983a721f872ef3cbaf1619646581', (resp) => {
     let data = '';
-
     // A chunk of data has been recieved.
     resp.on('data', (chunk) => {
       data += chunk;
     });
-
     // The whole response has been received. Print out the result.
     resp.on('end', () => {
       var datae = JSON.parse(data);
