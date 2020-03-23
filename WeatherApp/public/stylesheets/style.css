@@ -5,7 +5,7 @@ body {
   font-family: 'Josefin Sans', sans-serif;
 }
 .WeatherICON{
-  background-color: #D3D3D3;
+  background-color: #0EC339;
   border: 3px black solid;
   padding: 30px;
   border-radius: 50%;
@@ -15,7 +15,19 @@ body {
 }
 
 
-.WeatherName_Array_List{}
-.WeatherName_Array_Item{}
-.WeatherName_Array_ICON{}
+.WeatherName_Array_List {}
+.WeatherName_Array_Item{
+  float: left;
+  border-style: solid;
+  border-color: black;
+  padding: 30px;
+}
+.WeatherName_Array_ICON{
+  background-color: #0EC339;
+  width: 45%;
+  height: auto;
+  border: 3px black solid;
+  padding: 13px;
+  border-radius: 50%;
+}
 .WeatherName_Array_Dscpt{}

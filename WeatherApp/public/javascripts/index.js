@@ -70,22 +70,40 @@ $(document).ready(() => {
           var data = JSON.parse(data);
           console.log(data);
 
-          /*
-          var sunrise = new Date((data.sunrise*1000) + (data.timezone*1000));
-          //var sunrise = (new Date()).now(data.sunrise);
-          var sunset = new Date((data.sunset*1000));
-          console.log("Sunrise : " + sunrise);
-          console.log("Sunset : " + sunset);
-          */
 
-          var arrayDiv = $("<div></div").attr();
+          var arrayDiv = $("<div></div").attr({
+            'class':'WeatherName_Array_List',
+            'id':'WeatherName_Array_List'
+          });
 
+          var list = data.list;
 
+          list.forEach((item)=>{
+            var listItem = $("<div></div>").attr({
+              'class':'WeatherName_Array_Item'
+            });
 
+            var image = $("<img></img>").attr({
+              "src": item.icon,
+              "alt": "Weather LOGO",
+              "class": "WeatherName_Array_ICON"
+            });
+            var name = $("<h2></h2>").attr("Class", "WeatherName");
+            name.html(item.name);
+            var mosum = $("<h3></h3>").attr("class", "WeatherDescription");
+            mosum.html(item.weather);
+            var description = $("<p></p>").attr("class", "WeatherName_Array_Dscpt");
+            description.html(item.description);
 
+            var temp = $("<p></p>").attr({'class':'temp'}).html((item.temp-273.15).toFixed(2) + ' &#176C');
+            var wind = $("<p></p>").attr({'class':'wind'}).html(item.wind + 'm/s');
+            var humid = $("<p></p>").attr({'class':'humid'}).html(item.humidity);
 
+            listItem.append(image,name,mosum,description,temp,humid,wind);
+            arrayDiv.append(listItem);
+          });
 
-          //Go Nuts
+          $("#root2").append(arrayDiv);
 
 
 
