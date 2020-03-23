@@ -23,7 +23,3 @@ Please make sure to update tests as appropriate.
 ## Credits
 
 This project was made by [Uzair Bin Asim](https://uzair05.github.io/) :japanese_goblin::japanese_goblin:
-
-### Fun
-
-![Image](https://safebooru.org//images/113/c0ffa3f910babe23a135061ee1d1a83377b086f1.gif?112989)
