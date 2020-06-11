@@ -5,7 +5,8 @@ body {
   font-family: 'Josefin Sans', sans-serif;
 }
 .WeatherICON{
-  background-color: #0EC339;
+  background-color: #5858FA; /* For browsers that do not support gradients */
+  background-image: radial-gradient(#57FAFA, #5858FA, #57A9FA);
   border: 3px black solid;
   padding: 30px;
   border-radius: 50%;
@@ -13,21 +14,26 @@ body {
 .WeatherDescription{
   text-transform: capitalize;
 }
-
-
-.WeatherName_Array_List {}
 .WeatherName_Array_Item{
   float: left;
   border-style: solid;
   border-color: black;
   padding: 30px;
+  margin: 5px 5px 0px 0px;
 }
+
+
 .WeatherName_Array_ICON{
-  background-color: #0EC339;
+  background-color: #5858FA; /* For browsers that do not support gradients */
+  background-image: radial-gradient(#57FAFA, #5858FA, #57A9FA);
+
   width: 45%;
   height: auto;
   border: 3px black solid;
   padding: 13px;
   border-radius: 50%;
 }
+
+
 .WeatherName_Array_Dscpt{}
+.WeatherName_Array_List {}

@@ -78,7 +78,8 @@ $(document).ready(() => {
 
           var list = data.list;
 
-          list.forEach((item)=>{
+          for(var i=0; i<12; i++){ //12 boxes held on screen
+            var item = list[i];
             var listItem = $("<div></div>").attr({
               'class':'WeatherName_Array_Item'
             });
@@ -101,7 +102,7 @@ $(document).ready(() => {
 
             listItem.append(image,name,mosum,description,temp,humid,wind);
             arrayDiv.append(listItem);
-          });
+          };
 
           $("#root2").append(arrayDiv);
 
