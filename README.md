@@ -6,6 +6,7 @@ Makes use of JQuery and JQuery-UI to enable js features, and is based on usage o
 
 ## Usage
 
+-   `cd Weather-App/WeatherApp/` to get into the weather app file.
 -   Build node_module directory using command: `npm install`
 -   Run `node app.js` in Node Console.
 -   Open <http://localhost:8081> in your browser.
