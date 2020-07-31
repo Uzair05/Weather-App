@@ -2,7 +2,7 @@
 
 Uses HTML5 location feature as well to display the weather of your area.
 
-Makes use of JQuery and JQuery-UI to enable js features.
+Makes use of JQuery and JQuery-UI to enable js features, and is based on usage of NodeJs.
 
 ## Usage
 
